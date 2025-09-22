@@ -12,7 +12,7 @@ const run = async () => {
     await consumer.connect();
     await consumer.subscribe({
       topics: ["payment-successful", "order-successful", "email-successful"],
-      fromBeginning: true,
+      fromBeginning: true,//if connection is lost, it will still catch all messages from kafka
     });
 
     await consumer.run({
